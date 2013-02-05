@@ -1,0 +1,9 @@
+name: BungeeTools
+main: com.github.calenria.bungeetools.BungeeTools
+version: 0.1
+website: https://github.com/Calenria/BungeeTools
+author: Calenria
+description: BungeeTools!
+database: false
+depend: [Vault, WorldEdit]
+softdepend: [Essentials, Vault, SimpleChat]
