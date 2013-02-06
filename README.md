@@ -38,7 +38,7 @@ Permissions
 Benutzung
 ==========
 ```
-/servers - Öffnet ein Menü zum Wechseln des Servers (Ultrabans)
+/servers - Öffnet ein Menü zum Wechseln des Servers
 /gban <player> (-s/-a) {reason} - Bann von allen Servern (Ultrabans)
 /gkick <player / *> (-s/-a) {reason} - Kick von allen Servern (Ultrabans)
 /send <player> [Server] - Spieler auf anderen Server verschieben
