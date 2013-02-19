@@ -66,6 +66,16 @@ public class BungeeToolsCommands {
             msgData.writeShort(msg.length()); // Data Length
             msgData.writeBytes(msg); // Data
             ((Player) sender).getPlayer().sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
+
+            msg = "#@#send#@#" + args.getString(0) + "#@#" + plugin.config.getJailServer();
+            bao = new ByteArrayOutputStream();
+            msgData = new DataOutputStream(bao);
+            msgData.writeUTF("Forward");
+            msgData.writeUTF("ALL"); // Server
+            msgData.writeUTF("BungeeTools"); // Channel
+            msgData.writeShort(msg.length()); // Data Length
+            msgData.writeBytes(msg); // Data
+            ((Player) sender).getPlayer().sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
         } catch (IOException ex) {
             ex.printStackTrace();
             return;

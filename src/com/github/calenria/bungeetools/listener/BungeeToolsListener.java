@@ -20,7 +20,11 @@ package com.github.calenria.bungeetools.listener;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 import com.github.calenria.bungeetools.BungeeTools;
 
@@ -50,6 +54,31 @@ public class BungeeToolsListener implements Listener {
     public BungeeToolsListener(final BungeeTools btPlugin) {
         this.plugin = btPlugin;
         Bukkit.getPluginManager().registerEvents(this, this.plugin);
+    }
+
+    @EventHandler(ignoreCancelled = false, priority = EventPriority.LOWEST)
+    public void onPlayerCommand(final PlayerCommandPreprocessEvent event) {
+        String command = event.getMessage().toLowerCase().substring(1);
+
+        if (command.startsWith("jail")) {
+            try {
+                String player = command.split(" ")[1];
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "/ungod " + player);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        for (String disablecmd : this.plugin.config.getDisable()) {
+            if (!disablecmd.startsWith(command)) {
+                continue;
+            }
+            if (!event.getPlayer().hasPermission("bungeetools." + disablecmd)) {
+                event.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Keine Rechte"));
+                event.setCancelled(true);
+                return;
+            }
+        }
     }
 
 }

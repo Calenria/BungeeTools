@@ -30,7 +30,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 public class ConfigData {
 
     private String       server;
+    private String       jailServer;
     private List<String> servers;
+    private List<String> disable;
 
     /**
      * @param plugin
@@ -40,6 +42,8 @@ public class ConfigData {
         FileConfiguration config = plugin.getConfig();
         setServer(config.getString("server"));
         setServers(config.getStringList("servers"));
+        setDisable(config.getStringList("disable"));
+        setJailServer(config.getString("jailServer"));
     }
 
     /**
@@ -70,6 +74,36 @@ public class ConfigData {
      */
     public void setServer(String server) {
         this.server = server;
+    }
+
+    /**
+     * @return the disable
+     */
+    public List<String> getDisable() {
+        return disable;
+    }
+
+    /**
+     * @param disable
+     *            the disable to set
+     */
+    public void setDisable(List<String> disable) {
+        this.disable = disable;
+    }
+
+    /**
+     * @return the jailServer
+     */
+    public String getJailServer() {
+        return jailServer;
+    }
+
+    /**
+     * @param jailServer
+     *            the jailServer to set
+     */
+    public void setJailServer(String jailServer) {
+        this.jailServer = jailServer;
     }
 
 }
