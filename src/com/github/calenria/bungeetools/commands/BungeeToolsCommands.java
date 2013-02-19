@@ -38,6 +38,7 @@ public class BungeeToolsCommands {
     @CommandPermissions("bungeetools.mute")
     public final void gmute(final CommandContext args, final CommandSender sender) throws CommandException {
         try {
+            final Player player = ((Player) sender).getPlayer();
             String msg = "#@#command#@#mute " + args.getJoinedStrings(0);
             ByteArrayOutputStream bao = new ByteArrayOutputStream();
             DataOutputStream msgData = new DataOutputStream(bao);
@@ -46,7 +47,7 @@ public class BungeeToolsCommands {
             msgData.writeUTF("BungeeTools"); // Channel
             msgData.writeShort(msg.length()); // Data Length
             msgData.writeBytes(msg); // Data
-            ((Player) sender).getPlayer().sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
+            player.getPlayer().sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
         } catch (IOException ex) {
             ex.printStackTrace();
             return;
@@ -57,6 +58,7 @@ public class BungeeToolsCommands {
     @CommandPermissions("bungeetools.jail")
     public final void gjail(final CommandContext args, final CommandSender sender) throws CommandException {
         try {
+            final Player player = ((Player) sender).getPlayer();
             String msg = "#@#command#@#jail " + args.getJoinedStrings(0);
             ByteArrayOutputStream bao = new ByteArrayOutputStream();
             DataOutputStream msgData = new DataOutputStream(bao);
@@ -65,7 +67,7 @@ public class BungeeToolsCommands {
             msgData.writeUTF("BungeeTools"); // Channel
             msgData.writeShort(msg.length()); // Data Length
             msgData.writeBytes(msg); // Data
-            ((Player) sender).getPlayer().sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
+            player.sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
 
             msg = "#@#send#@#" + args.getString(0) + "#@#" + plugin.config.getJailServer();
             bao = new ByteArrayOutputStream();
@@ -75,7 +77,7 @@ public class BungeeToolsCommands {
             msgData.writeUTF("BungeeTools"); // Channel
             msgData.writeShort(msg.length()); // Data Length
             msgData.writeBytes(msg); // Data
-            ((Player) sender).getPlayer().sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
+            player.getPlayer().sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
         } catch (IOException ex) {
             ex.printStackTrace();
             return;
@@ -86,6 +88,7 @@ public class BungeeToolsCommands {
     @CommandPermissions("bungeetools.send")
     public final void send(final CommandContext args, final CommandSender sender) throws CommandException {
         try {
+            final Player player = ((Player) sender).getPlayer();
             String msg = "#@#send#@#" + args.getString(0) + "#@#" + args.getString(1);
             ByteArrayOutputStream bao = new ByteArrayOutputStream();
             DataOutputStream msgData = new DataOutputStream(bao);
@@ -94,7 +97,7 @@ public class BungeeToolsCommands {
             msgData.writeUTF("BungeeTools"); // Channel
             msgData.writeShort(msg.length()); // Data Length
             msgData.writeBytes(msg); // Data
-            ((Player) sender).getPlayer().sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
+            player.sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
         } catch (IOException ex) {
             ex.printStackTrace();
             return;
@@ -105,6 +108,7 @@ public class BungeeToolsCommands {
     @CommandPermissions("bungeetools.kick")
     public final void gkick(final CommandContext args, final CommandSender sender) throws CommandException {
         try {
+            final Player player = ((Player) sender).getPlayer();
             String msg = "#@#command#@#kick " + args.getJoinedStrings(0);
             ByteArrayOutputStream bao = new ByteArrayOutputStream();
             DataOutputStream msgData = new DataOutputStream(bao);
@@ -113,7 +117,7 @@ public class BungeeToolsCommands {
             msgData.writeUTF("BungeeTools"); // Channel
             msgData.writeShort(msg.length()); // Data Length
             msgData.writeBytes(msg); // Data
-            ((Player) sender).getPlayer().sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
+            player.getPlayer().sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
         } catch (IOException ex) {
             ex.printStackTrace();
             return;
@@ -124,6 +128,7 @@ public class BungeeToolsCommands {
     @CommandPermissions("bungeetools.ban")
     public final void gban(final CommandContext args, final CommandSender sender) throws CommandException {
         try {
+            final Player player = ((Player) sender).getPlayer();
             String msg = "#@#command#@#ban " + args.getJoinedStrings(0);
             ByteArrayOutputStream bao = new ByteArrayOutputStream();
             DataOutputStream msgData = new DataOutputStream(bao);
@@ -132,7 +137,7 @@ public class BungeeToolsCommands {
             msgData.writeUTF("BungeeTools"); // Channel
             msgData.writeShort(msg.length()); // Data Length
             msgData.writeBytes(msg); // Data
-            ((Player) sender).getPlayer().sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
+            player.sendPluginMessage(plugin, "BungeeCord", bao.toByteArray());
         } catch (IOException ex) {
             ex.printStackTrace();
             return;
