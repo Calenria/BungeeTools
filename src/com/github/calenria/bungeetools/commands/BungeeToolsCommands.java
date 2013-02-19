@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
@@ -38,7 +39,7 @@ public class BungeeToolsCommands {
     @CommandPermissions("bungeetools.mute")
     public final void gmute(final CommandContext args, final CommandSender sender) throws CommandException {
         try {
-            final Player player = ((Player) sender).getPlayer();
+            final Player player = Bukkit.getPlayer(sender.getName());
             String msg = "#@#command#@#mute " + args.getJoinedStrings(0);
             ByteArrayOutputStream bao = new ByteArrayOutputStream();
             DataOutputStream msgData = new DataOutputStream(bao);
@@ -58,7 +59,7 @@ public class BungeeToolsCommands {
     @CommandPermissions("bungeetools.jail")
     public final void gjail(final CommandContext args, final CommandSender sender) throws CommandException {
         try {
-            final Player player = ((Player) sender).getPlayer();
+            final Player player = Bukkit.getPlayer(sender.getName());
             String msg = "#@#command#@#jail " + args.getJoinedStrings(0);
             ByteArrayOutputStream bao = new ByteArrayOutputStream();
             DataOutputStream msgData = new DataOutputStream(bao);
@@ -88,7 +89,7 @@ public class BungeeToolsCommands {
     @CommandPermissions("bungeetools.send")
     public final void send(final CommandContext args, final CommandSender sender) throws CommandException {
         try {
-            final Player player = ((Player) sender).getPlayer();
+            final Player player = Bukkit.getPlayer(sender.getName());
             String msg = "#@#send#@#" + args.getString(0) + "#@#" + args.getString(1);
             ByteArrayOutputStream bao = new ByteArrayOutputStream();
             DataOutputStream msgData = new DataOutputStream(bao);
@@ -108,7 +109,7 @@ public class BungeeToolsCommands {
     @CommandPermissions("bungeetools.kick")
     public final void gkick(final CommandContext args, final CommandSender sender) throws CommandException {
         try {
-            final Player player = ((Player) sender).getPlayer();
+            final Player player = Bukkit.getPlayer(sender.getName());
             String msg = "#@#command#@#kick " + args.getJoinedStrings(0);
             ByteArrayOutputStream bao = new ByteArrayOutputStream();
             DataOutputStream msgData = new DataOutputStream(bao);
@@ -128,7 +129,7 @@ public class BungeeToolsCommands {
     @CommandPermissions("bungeetools.ban")
     public final void gban(final CommandContext args, final CommandSender sender) throws CommandException {
         try {
-            final Player player = ((Player) sender).getPlayer();
+            final Player player = Bukkit.getPlayer(sender.getName());
             String msg = "#@#command#@#ban " + args.getJoinedStrings(0);
             ByteArrayOutputStream bao = new ByteArrayOutputStream();
             DataOutputStream msgData = new DataOutputStream(bao);
